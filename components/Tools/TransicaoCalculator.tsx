@@ -2,15 +2,31 @@ import React, { useState } from 'react';
 import { ToolLayout, Card, Button, FormInput, FormSelect, ResultCard, CalculationMemory } from '../ToolShared';
 import { Calculator, Calendar, TrendingUp } from 'lucide-react';
 
-// Cronograma de Transição conforme EC 132/2023
+// Cronograma de Transição conforme EC 132/2023 e CSV "Aula 1 - Apoio a aula - Transição.csv"
+// VALIDADO: Fatores ICMS/ISS e percentuais IBS conforme especificação oficial
 const CRONOGRAMA = [
+    // 2026: CBS inicia com 90%, ICMS/ISS mantém 100% (SEM REDUÇÃO)
     { ano: 2026, cbsNovo: 0.9, cbsAntigo: 0.1, ibsNovo: 0, ibsAntigo: 1.0, icms: 1.0, iss: 1.0 },
-    { ano: 2027, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.1, ibsAntigo: 0, icms: 0.9, iss: 0.9 },
-    { ano: 2028, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.2, ibsAntigo: 0, icms: 0.8, iss: 0.8 },
-    { ano: 2029, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.3, ibsAntigo: 0, icms: 0.7, iss: 0.7 },
-    { ano: 2030, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.5, ibsAntigo: 0, icms: 0.5, iss: 0.5 },
-    { ano: 2031, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.7, ibsAntigo: 0, icms: 0.3, iss: 0.3 },
-    { ano: 2032, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.9, ibsAntigo: 0, icms: 0.1, iss: 0.1 },
+
+    // 2027: CBS 100%, IBS inicia 10%, ICMS/ISS mantém 100% (SEM REDUÇÃO)
+    { ano: 2027, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.1, ibsAntigo: 0, icms: 1.0, iss: 1.0 },
+
+    // 2028: IBS 20%, ICMS/ISS mantém 100% (SEM REDUÇÃO)
+    { ano: 2028, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.2, ibsAntigo: 0, icms: 1.0, iss: 1.0 },
+
+    // 2029: IBS 30%, ICMS/ISS REDUZ 10% (fator 0.9)
+    { ano: 2029, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.3, ibsAntigo: 0, icms: 0.9, iss: 0.9 },
+
+    // 2030: IBS 40%, ICMS/ISS REDUZ 20% (fator 0.8)
+    { ano: 2030, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.4, ibsAntigo: 0, icms: 0.8, iss: 0.8 },
+
+    // 2031: IBS 50%, ICMS/ISS REDUZ 30% (fator 0.7)
+    { ano: 2031, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.5, ibsAntigo: 0, icms: 0.7, iss: 0.7 },
+
+    // 2032: IBS 60%, ICMS/ISS REDUZ 40% (fator 0.6)
+    { ano: 2032, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 0.6, ibsAntigo: 0, icms: 0.6, iss: 0.6 },
+
+    // 2033: IBS 100%, ICMS/ISS EXTINTO
     { ano: 2033, cbsNovo: 1.0, cbsAntigo: 0, ibsNovo: 1.0, ibsAntigo: 0, icms: 0, iss: 0 }
 ];
 
@@ -179,9 +195,9 @@ export default function TransicaoCalculator({ onBack }: { onBack: () => void }) 
                             <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Período de Transição</div>
                             <div className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
                                 <p>• <strong>2026</strong>: CBS inicia (90%)</p>
-                                <p>• <strong>2027</strong>: CBS 100% + IBS inicia (10%)</p>
-                                <p>• <strong>2027-2032</strong>: Transição gradual</p>
-                                <p>• <strong>2033</strong>: 100% novo sistema</p>
+                                <p>• <strong>2027-2028</strong>: IBS inicia, ICMS/ISS mantém 100%</p>
+                                <p>• <strong>2029-2032</strong>: Redução gradual ICMS/ISS (10% a 40%)</p>
+                                <p>• <strong>2033</strong>: 100% novo sistema (IBS/CBS)</p>
                             </div>
                         </div>
                     </Card>
