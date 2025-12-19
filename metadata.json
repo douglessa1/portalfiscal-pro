@@ -1,0 +1,8 @@
+{
+  "name": "Portal Fiscal Pro",
+  "description": "A next-generation fiscal and tax intelligence platform for professionals, featuring AI-powered analysis, real-time news, and community tools.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
