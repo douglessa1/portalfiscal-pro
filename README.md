@@ -65,6 +65,21 @@
 
 ## 🚀 Deploy
 
+### ⚠️ IMPORTANTE: Variáveis de Ambiente
+
+Antes de fazer deploy, você **PRECISA** configurar a API do Google Gemini:
+
+1. Obtenha uma API key em: https://ai.google.dev/
+2. Crie um arquivo `.env` na raiz:
+   ```
+   VITE_GEMINI_API_KEY=sua_chave_aqui
+   ```
+3. Para Vercel: Adicione em **Settings → Environment Variables**
+
+**Veja**: [SETUP_ENVIRONMENT_VARIABLES.md](SETUP_ENVIRONMENT_VARIABLES.md) para instruções completas.
+
+---
+
 ### Vercel (Recomendado)
 
 1. Acesse [Vercel](https://vercel.com/new)
@@ -73,6 +88,7 @@
    - **Framework:** Vite
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
+   - **Environment Variables:** Adicione `VITE_GEMINI_API_KEY`
 4. Deploy!
 
 ### Local
