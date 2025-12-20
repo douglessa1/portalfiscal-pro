@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Button } from './ToolShared';
-import { FileText, Wallet, Search, Filter, ArrowUpRight, ArrowDownLeft, Download, CreditCard, LayoutGrid, PieChart, Landmark, ChevronDown, Plus, X } from 'lucide-react';
+import { FileText, Wallet, Search, Filter, ArrowUpRight, ArrowDownLeft, Download, CreditCard, LayoutGrid, PieChart, Landmark, ChevronDown, Plus } from 'lucide-react';
 
 interface FinancialModuleProps {
     currentCompany: string;

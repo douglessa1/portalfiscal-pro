@@ -137,7 +137,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp }) => {
               </div>
 
               {/* PRODUCT SHOWCASE TABS */}
-              <div id="features" className="max-w-5xl mx-auto">
+              <div className="max-w-5xl mx-auto">
                  {/* Tabs Navigation */}
                  <div className="flex justify-center mb-8">
                     <div className="p-1.5 bg-white border border-slate-200 rounded-xl shadow-sm inline-flex gap-1">

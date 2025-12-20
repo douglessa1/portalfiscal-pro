@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Button } from './ToolShared';
-import { FileText, Wallet, Search, Filter, ArrowUpRight, ArrowDownLeft, Download, CreditCard, LayoutGrid, PieChart, Landmark, ChevronDown, Plus, X } from 'lucide-react';
+import { FileText, Wallet, Search, Filter, ArrowUpRight, ArrowDownLeft, Download, CreditCard, LayoutGrid, PieChart, Landmark, ChevronDown, Plus } from 'lucide-react';
 
 interface FinancialModuleProps {
     currentCompany: string;
@@ -144,54 +144,8 @@ export const FinancialModule: React.FC<FinancialModuleProps> = ({ currentCompany
                 </div>
             </div>
         </div>
-
-        {/* Modal: Nova Operação */}
-        {showOperationModal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setShowOperationModal(false)}></div>
-                <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-fade-in-up">
-                    <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Nova Operação</h3>
-                        <button onClick={() => setShowOperationModal(false)} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
-                            <X size={20} className="text-slate-500" />
-                        </button>
-                    </div>
-
-                    <div className="space-y-4">
-                        <div>
-                            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Tipo de Operação</label>
-                            <select className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500">
-                                <option>Transferência</option>
-                                <option>Pagamento</option>
-                                <option>Depósito</option>
-                                <option>Saque</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Valor (R$)</label>
-                            <input type="number" placeholder="0.00" step="0.01" className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500" />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Descrição</label>
-                            <input type="text" placeholder="Ex: Pagamento NF..." className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500" />
-                        </div>
-                    </div>
-
-                    <div className="flex gap-3 mt-6">
-                        <button onClick={() => setShowOperationModal(false)} className="flex-1 py-2.5 px-4 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                            Cancelar
-                        </button>
-                        <button className="flex-1 py-2.5 px-4 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2">
-                            <Plus size={16} /> Registrar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        )}
     );
 };
-
-export default FinancialModule;
 
 const NavButton = ({ icon: Icon, label, sub, active, onClick }: any) => (
     <button 
@@ -204,4 +158,4 @@ const NavButton = ({ icon: Icon, label, sub, active, onClick }: any) => (
             {sub && <div className="text-[10px] font-medium opacity-60 mt-0.5">{sub}</div>}
         </div>
     </button>
-);
+)

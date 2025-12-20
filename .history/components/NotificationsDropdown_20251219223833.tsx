@@ -28,7 +28,7 @@ export const NotificationsDropdown: React.FC<NotificationProps> = ({ onClose }) 
                 <button className="text-xs text-emerald-600 font-medium hover:underline">Marcar como lidas</button>
             </div>
             <div className="max-h-[300px] overflow-y-auto">
-                {displayedNotifications.map(note => (
+                {notifications.map(note => (
                     <div key={note.id} className="p-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors border-b border-slate-50 dark:border-slate-700/50 last:border-0 cursor-pointer">
                         <div className="flex gap-3">
                             <div className={`p-2 rounded-full h-fit ${note.bg} ${note.color}`}>
@@ -44,12 +44,7 @@ export const NotificationsDropdown: React.FC<NotificationProps> = ({ onClose }) 
                 ))}
             </div>
             <div className="p-2 bg-slate-50 dark:bg-slate-900/50 text-center border-t border-slate-100 dark:border-slate-700">
-                <button 
-                    onClick={() => setShowAll(!showAll)}
-                    className="text-xs font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-300 transition-colors"
-                >
-                    {showAll ? 'Ver menos' : 'Ver todas'}
-                </button>
+                <button className="text-xs font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-300">Ver todas</button>
             </div>
             
             {/* Backdrop for clicking outside */}
