@@ -14,6 +14,7 @@ export const FinancialModule: React.FC<FinancialModuleProps> = ({ currentCompany
 
     // Banking Interface Layout
     return (
+        <>
         <div className="flex flex-col md:flex-row gap-6 h-[calc(100vh-8rem)] animate-fade-in-up">
             
             {/* 1. Internal Sidebar (Banking Menu) */}
@@ -188,6 +189,7 @@ export const FinancialModule: React.FC<FinancialModuleProps> = ({ currentCompany
                 </div>
             </div>
         )}
+        </>
     );
 };
 
